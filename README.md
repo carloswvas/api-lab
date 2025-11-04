@@ -42,7 +42,7 @@ Este repositório tem como objetivo **disponibilizar APIs reais para que desenvo
 
 ```bash
 # Clone o repositório
-git clone https://github.com/carlosvasconcelos/praticas-quinzenais-api.git
+git clone https://github.com/carloswvas/api-lab.git
 
 # Entre na pasta de uma API específica
 cd 01-api-tasks
@@ -92,12 +92,12 @@ Cada API virá acompanhada de sugestões como:
 
 ## 🗓️ Cronograma de Lançamentos
 
-| Nº | Tema da API | Data de Publicação |
-|----|--------------|--------------------|
-| 01 | Lista de Tarefas | 10/11/2025 |
-| 02 | Produtos e Categorias | 24/11/2025 |
-| 03 | Usuários e Autenticação | 08/12/2025 |
-| ... | ... | ... |
+| Nº | Tema da API | Data de Publicação | Status
+|----|--------------|--------------------| -------- |
+| 01 | Lista de Tarefas | 00/00/2025 | 🟢 Disponível |
+| 02 | Produtos e Categorias | 00/00/2025 | 🔴 Em desenvolvimento |
+| 03 | Usuários e Autenticação | 00/00/2025 | ⚪ Em breve |
+| ... | ... | ... | ... |
 
 ---
 
