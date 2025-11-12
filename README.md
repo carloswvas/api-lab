@@ -48,10 +48,10 @@ git clone https://github.com/carloswvas/api-lab.git
 cd 01-api-tasks
 
 # Instale as dependências
-npm install
+pnpm install
 
 # Rode o servidor
-npm run start:dev
+pnpm run start:dev
 ```
 
 A API ficará disponível em:  
