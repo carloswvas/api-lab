@@ -1,11 +1,11 @@
-# 🧠 **API LAB** — APIs Reais para Treino de Front-End
+# **API LAB** — APIs Reais para Treino de Front-End
 
 **Autor:** Carlos Vasconcelos  
 **Tecnologias:** NestJS · TypeScript · SQLite · REST API  
 
 ---
 
-## 🎯 **Objetivo**
+## **Objetivo**
 
 Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** praticarem integração com back-end — como em projetos do mercado.
 
@@ -13,7 +13,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 
 ---
 
-## 🔄 **Como Funciona**
+## **Como Funciona**
 
 1. **Novas APIs são adicionadas em pastas numeradas:**
 
@@ -37,7 +37,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **NestJS** — Framework Node.js modular e escalável.  
 - **TypeScript** — Tipagem forte e manutenção simplificada.  
@@ -47,7 +47,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 
 ---
 
-## 🚀 Como Executar uma API
+## Como Executar uma API
 
 ```bash
 # Clone o repositório
@@ -64,14 +64,14 @@ pnpm run start:dev
 ```
 
 A API ficará disponível em:  
-👉 **http://localhost:3000**
+**http://localhost:3000**
 
 A documentação Swagger pode ser acessada em:  
-👉 **http://localhost:3000/docs**
+**http://localhost:3000/docs**
 
 ---
 
-## 🧩 Estrutura Padrão de Cada API
+## Estrutura Padrão de Cada API
 
 ```
 📁 src/
@@ -88,7 +88,7 @@ A documentação Swagger pode ser acessada em:
 
 ---
 
-## 💡 Sugestões de Prática para Front-End
+## Sugestões de Prática para Front-End
 
 Cada API virá acompanhada de sugestões como:
 - Criar uma tela de **listagem e detalhes** dos dados.
@@ -99,7 +99,7 @@ Cada API virá acompanhada de sugestões como:
 
 ---
 
-## 🗓️ Cronograma de Lançamentos
+## Cronograma de Lançamentos
 
 | Nº | Tema da API | Data de Publicação | Status
 |----|--------------|--------------------| -------- |
@@ -110,7 +110,7 @@ Cada API virá acompanhada de sugestões como:
 
 ---
 
-## 🤝 Como Contribuir
+## Como Contribuir
 
 Quer sugerir uma nova prática ou colaborar?  
 1. Faça um **fork** do repositório.  
@@ -122,7 +122,7 @@ Quer sugerir uma nova prática ou colaborar?
 
 ---
 
-## 🧑‍💻 Sobre o Autor
+## Sobre o Autor
 
 **Carlos Vasconcelos**  
 Instrutor de TI com mais de 10 anos de experiência na área e 7 anos na educação.  
