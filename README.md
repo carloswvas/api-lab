@@ -1,30 +1,39 @@
-# 🧠 API LAB — APIs para Treino de Front-End  
+# 🧠 **API LAB** — APIs Reais para Treino de Front-End
+
 **Autor:** Carlos Vasconcelos  
 **Tecnologias:** NestJS · TypeScript · SQLite · REST API  
 
 ---
 
-## 🎯 Objetivo
+## 🎯 **Objetivo**
 
-Este repositório tem como objetivo **disponibilizar APIs reais para que desenvolvedores front-end possam praticar integração com back-end**. Periodicamente, uma nova API será lançada com um tema e conjunto de endpoints para consumo, simulando cenários reais do mercado.
+Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** praticarem integração com back-end — como em projetos do mercado.
+
+> **Cada API = 1 cenário real + desafios práticos**
 
 ---
 
-## 🔄 Como Funciona
+## 🔄 **Como Funciona**
 
-1. **Periodicamente**, será adicionada uma nova API em uma pasta separada, por exemplo:
+1. **Novas APIs são adicionadas em pastas numeradas:**
+
    ```
    /01-api-tasks
    /02-api-products
    /03-api-users
    ...
    ```
-2. Cada pasta conterá:
-   - Um projeto **NestJS** completo com **SQLite** embutido.  
-   - Um **README.md próprio** explicando endpoints, exemplos de uso e sugestões de desafios.
-   - Um **arquivo .db** (SQLite) com dados de exemplo.
 
-3. As APIs podem ser consumidas via **Postman**, **Insomnia** ou diretamente pelo **frontend** (React, Vue, Angular etc).
+2. **Cada pasta contém:**
+   - Projeto NestJS completo com SQLite
+   - `README.md` com endpoints, exemplos e **desafios front-end**
+   - Banco `.db` com dados reais (quando necessário)
+   - Documentação Swagger
+
+3. **Consuma com:**
+   - React, Vue, Angular
+   - Postman, Insomnia
+   - Mobile (React Native, Flutter)
 
 ---
 
@@ -58,7 +67,7 @@ A API ficará disponível em:
 👉 **http://localhost:3000**
 
 A documentação Swagger pode ser acessada em:  
-👉 **http://localhost:3000/api-docs**
+👉 **http://localhost:3000/docs**
 
 ---
 
@@ -121,3 +130,6 @@ Atua com desenvolvimento de software, mentoria de alunos e criação de produtos
 
 📬 [LinkedIn](https://www.linkedin.com/in/carlos-w-vasconcelos/)  
 🐙 [GitHub](https://github.com/carloswvas)
+
+---
+> **Clone. Consuma. Construa. Brilhe.**
