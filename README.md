@@ -103,7 +103,7 @@ Cada API virá acompanhada de sugestões como:
 
 | Nº | Tema da API | Data de Publicação | Status
 |----|--------------|--------------------| -------- |
-| 01 | Lista de Tarefas | 00/00/2025 | 🟢 Disponível |
+| 01 | Lista de Tarefas | 17/11/2025 | 🟢 Disponível |
 | 02 | Produtos e Categorias | 00/00/2025 | 🔴 Em desenvolvimento |
 | 03 | Usuários e Autenticação | 00/00/2025 | ⚪ Em breve |
 | ... | ... | ... | ... |
