@@ -1,0 +1,40 @@
+name: API LAB - Validação de Contribuições
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate_apis:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+        
+      - name: Configurar Node.js e pnpm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Configurar Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Configurar Java 17 (para Maven)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - name: Adicionar Permissão de Execução ao Script
+        run: chmod +x scripts/run_ci_all.sh
+        
+      - name: Executar CI e Testes em Todas as APIs
+        run: ./scripts/run_ci_all.sh
