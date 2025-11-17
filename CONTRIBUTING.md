@@ -1,13 +1,13 @@
-# 🤝 Como contribuir
+# Como contribuir
 
-Obrigado por querer contribuir para este projeto! ❤️  
+Obrigado por querer contribuir para este projeto!
 Toda ajuda é bem-vinda: código, documentação, correções, ideias, relato de bugs — tudo faz diferença.
 
 Para manter o projeto organizado e de alta qualidade, pedimos que siga o fluxo abaixo ao contribuir com código.
 
 ---
 
-## 📌 Passos para contribuir com código
+## Passos para contribuir com código
 
 1. **Faça um fork do repositório**  
    Clique no botão **Fork** no canto superior direito da página do repositório.
@@ -44,7 +44,7 @@ Para manter o projeto organizado e de alta qualidade, pedimos que siga o fluxo a
    git add .
    git commit -m "feat: adicionar endpoint /api/v1/users"
    ```
-   > ✨ Usamos [Conventional Commits](https://www.conventionalcommits.org/) para mensagens de commit (opcional, mas recomendado).
+   >  Usamos [Conventional Commits](https://www.conventionalcommits.org/) para mensagens de commit (opcional, mas recomendado).
 
 7. **Envie sua branch para o seu fork**
    ```bash
@@ -57,7 +57,7 @@ Para manter o projeto organizado e de alta qualidade, pedimos que siga o fluxo a
    - Preencha o título e a descrição (o template de PR será carregado automaticamente, se houver)
    - Clique em **Create pull request**
 
-✅ Seu PR será revisado pela equipe. Pode levar algum tempo — agradecemos sua paciência!
+Seu PR será revisado pela equipe. Pode levar algum tempo — agradecemos sua paciência!
 
 ---
 
@@ -70,32 +70,28 @@ Para manter o projeto organizado e de alta qualidade, pedimos que siga o fluxo a
 - ✅ Todos os *checks* de CI (testes, lint, build) estão passando  
 - ✅ Os comentários da revisão foram resolvidos
 
-> ⚠️ **Importante**: a branch `main` está protegida. **Não é possível fazer push direto nela** — todas as alterações devem passar por PR.
+> **Importante**: a branch `main` está protegida. **Não é possível fazer push direto nela** — todas as alterações devem passar por PR.
 
 ---
 
-## ❓ Dúvidas ou precisa de ajuda?
+## Dúvidas ou precisa de ajuda?
 
 - Abra uma [**Issue**](https://github.com/ORIGINAL/nome-do-repositorio/issues) com a tag `question` ou `help wanted`  
 - Comente em uma issue existente se quiser trabalhar nela  
-- Se for sua primeira contribuição, procure por issues com a label `good first issue` 🌱
+- Se for sua primeira contribuição, procure por issues com a label `good first issue`
 
 ---
 
-✨ **Mais uma vez, obrigado por contribuir!**  
+**Mais uma vez, obrigado por contribuir!**  
 Seu esforço ajuda a tornar este projeto melhor para todos.
 ```
 
 ---
 
-### 🔧 Personalização rápida (antes de salvar):
+### Personalização rápida (antes de salvar):
 
 Substitua esses trechos pelo seu projeto real:
 - `SEU_USUARIO` → seu username no GitHub  
 - `ORIGINAL/nome-do-repositorio` → ex: `joaopedro/projeto-open`  
 - `feature/nova-api` → mantenha como exemplo ou adapte ao seu domínio  
 - Link de Issues: certifique-se de que o link aponta pro seu repo
-
-> ✅ **Dica bônus**: Crie também uma issue com título `🌱 Boas-vindas! Primeira contribuição? Comece aqui` e marque com `good first issue` — isso atrai novos colaboradores!
-
-Se quiser, posso gerar uma versão em **inglês** (recomendado para projetos globais) ou com mais detalhes técnicos (ex: guia de estilo, comandos específicos de build). É só pedir! 🚀
