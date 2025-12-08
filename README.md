@@ -1,7 +1,7 @@
 # **API LAB** — APIs Reais para Treino de Front-End
 
 **Autor:** Carlos Vasconcelos  
-**Tecnologias:** NestJS · TypeScript · SQLite · REST API  
+**Tecnologias:** NestJS · TypeScript · MongoDB · PostgreSQL · REST API · Docker 
 
 ---
 
@@ -27,7 +27,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 2. **Cada pasta contém:**
    - Projeto NestJS completo com SQLite
    - `README.md` com endpoints, exemplos e **desafios front-end**
-   - Banco `.db` com dados reais (quando necessário)
+   - Dockerfile para rodar a API em container
    - Documentação Swagger
 
 3. **Consuma com:**
@@ -41,7 +41,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 
 - **NestJS** — Framework Node.js modular e escalável.  
 - **TypeScript** — Tipagem forte e manutenção simplificada.  
-- **SQLite** — Banco de dados leve e portátil, ideal para APIs de treino.  
+- **Docker / Docker Compose** — Containerização e orquestração para fácil execução.  
 - **Class Validator / Class Transformer** — Validação e transformação de dados.  
 - **Swagger** — Documentação automática dos endpoints.
 
@@ -56,11 +56,11 @@ git clone https://github.com/carloswvas/api-lab.git
 # Entre na pasta de uma API específica
 cd 01-api-tasks
 
-# Instale as dependências
-pnpm install
+# Suba a API usando Docker Compose
+docker compose up -d --build
 
-# Rode o servidor
-pnpm run start:dev
+# (Opcional) Verifique os logs do container
+docker logs task-api
 ```
 
 A API ficará disponível em:  
@@ -76,14 +76,16 @@ A documentação Swagger pode ser acessada em:
 ```
 📁 src/
  ┣ 📂 modules/
- ┃ ┣ 📂 entities/
- ┃ ┣ 📂 dto/
+ ┃ ┣ 📂 dtos/
+ ┃ ┣ 📂 schemas/
+ ┃ ┣ 📂 tests/
  ┃ ┣ 📜 controller.ts
  ┃ ┣ 📜 service.ts
  ┃ ┗ 📜 module.ts
  ┣ 📜 main.ts
  ┣ 📜 app.module.ts
- ┗ 📜 prisma/
+ ┗ 📜 docker-compose.yml
+ ┗ 📜 Dockerfile
 ```
 
 ---
@@ -103,7 +105,7 @@ Cada API virá acompanhada de sugestões como:
 
 | Nº | Tema da API | Data de Publicação | Status
 |----|--------------|--------------------| -------- |
-| 01 | Lista de Tarefas | 17/11/2025 | 🟢 Disponível |
+| 01 | Lista de Tarefas | 08/12/2025 | 🟢 Disponível |
 | 02 | Produtos e Categorias | 00/00/2025 | 🔴 Em desenvolvimento |
 | 03 | Usuários e Autenticação | 00/00/2025 | ⚪ Em breve |
 | ... | ... | ... | ... |
