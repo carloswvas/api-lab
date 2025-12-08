@@ -48,7 +48,7 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 ---
 
 ## Como Executar uma API
-
+**Importante:** Certifique-se de que o **Docker Desktop** está **ligado / iniciado / em execução (running)** antes de usar qualquer comando do Docker ou Docker Compose.
 ```bash
 # Clone o repositório
 git clone https://github.com/carloswvas/api-lab.git
