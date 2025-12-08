@@ -1,128 +1,107 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Tasks } from './entities/task.entity';
-import { FindTaskDTO } from './dto/find-task.dto';
-import { CreateTaskDTO } from './dto/create-tasks.dto';
-import { UpdateTasksDTO } from './dto/update-tasks.dto';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { FindTaskDTO } from './dtos/find-task.dto';
+import { CreateTasksDTO } from './dtos/create-task.dto';
+import { UpdateTaskDTO } from './dtos/update-task.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Task, TaskDocument } from './schemas/task.schema';
+import { isValidObjectId, Model } from 'mongoose';
 
 @Injectable()
 export class TasksService {
-  constructor(
-    @InjectRepository(Tasks)
-    private readonly taskRepository: Repository<Tasks>,
-  ) {}
+    constructor(
+        @InjectModel(Task.name)
+        private readonly taskModel: Model<TaskDocument>
+    ) { }
 
-  async findAll(
-    filters: FindTaskDTO,
-  ): Promise<{ tasks: Tasks[]; total: number }> {
-    const {
-      search,
-      orderBy = 'dueDate',
-      order = 'DESC',
-      dueDateStart,
-      dueDateEnd,
-      createdStart,
-      createdEnd,
-      status,
-      page = 1,
-      limit = 10,
-    } = filters;
-
-    const query = this.taskRepository.createQueryBuilder('task');
-
-    const allowedOrderFields = [
-      'dueDate',
-      'created_at',
-      'updated_at',
-      'status',
-      'task',
-    ];
-    const safeOrderBy = allowedOrderFields.includes(orderBy)
-      ? orderBy
-      : 'dueDate';
-
-    if (search) {
-      query.andWhere(
-        '(task.title LIKE :search OR task.description LIKE :search)',
-        {
-          search: `%${search}%`,
-        },
-      );
+    async create(createTaskDTO: CreateTasksDTO): Promise<Task> {
+        const createdTask = new this.taskModel(createTaskDTO)
+        return await createdTask.save()
     }
 
-    if (dueDateStart && dueDateEnd) {
-      query.andWhere('task.dueDate BETWEEN :start AND :end', {
-        start: dueDateStart,
-        end: dueDateEnd,
-      });
-    } else if (dueDateStart) {
-      query.andWhere('task.dueDate >= :start', {
-        start: dueDateStart,
-      });
-    } else if (dueDateEnd) {
-      query.andWhere('task.dueDate <= :end', {
-        end: dueDateEnd,
-      });
+    async findAll(queryDTO: FindTaskDTO) {
+        const {
+            search,
+            status,
+            orderBy,
+            order,
+            page = 1,
+            limit = 10,
+            dueDateStart,
+            dueDateEnd,
+        } = queryDTO
+
+        const filters: any = {}
+
+        if (status) {
+            filters.status = status
+        }
+
+        if (search) {
+            filters.$or = [
+                { title: { $regex: search, $options: 'i' } },
+                { description: { $regex: search, $options: 'i' } },
+            ];
+        }
+
+        if (dueDateStart || dueDateEnd) {
+            filters.dueDate = {};
+            if (dueDateStart) filters.dueDate.$gte = dueDateStart;
+            if (dueDateEnd) filters.dueDate.$lte = dueDateEnd;
+        }
+
+        const query = this.taskModel.find(filters);
+
+        if (orderBy) {
+            const sortOrder = order === 'DESC' ? -1 : 1;
+            query.sort({ [orderBy]: sortOrder });
+        }
+
+        const skip = (page - 1) * limit;
+        query.skip(skip).limit(limit);
+
+        const [data, total] = await Promise.all([
+            query.exec(),
+            this.taskModel.countDocuments(filters),
+        ]);
+
+        return { page, limit, total, data };
+
     }
 
-    if (createdStart && createdEnd) {
-      query.andWhere('task.created_at BETWEEN :cStart AND :cEnd', {
-        cStart: createdStart,
-        cEnd: createdEnd,
-      });
+    async findOne(id: string): Promise<Task> {
+        if (!isValidObjectId(id)) {
+            throw new BadRequestException(`O ID '${id}' não é válido`)
+        }
+
+        const task = await this.taskModel.findById(id).exec()
+        if (!task) {
+            throw new NotFoundException(`Task with ID:${id} not found`)
+        }
+
+        return task;
     }
 
-    if (status) {
-      query.andWhere('task.status = :status', { status });
+    async update(id: string, updateTaskDTO: UpdateTaskDTO): Promise<Task> {
+        const updatedTask = await this.taskModel.findByIdAndUpdate(id, updateTaskDTO, {
+            new: true,
+            runValidators: true
+        }).exec()
+
+        if (!updatedTask) {
+            throw new NotFoundException(`Task with ID:${id} not found`)
+        }
+
+        return updatedTask;
     }
 
-    query.orderBy(`task.${safeOrderBy}`, order === 'ASC' ? 'ASC' : 'DESC');
-    query.skip((page - 1) * limit).take(limit);
-
-    const [tasks, total] = await query.getManyAndCount();
-    return { tasks, total };
-  }
-
-  async findOne(id: string) {
-    const task = await this.taskRepository.findOne({
-      where: { id },
-    });
-
-    if (!task) {
-      throw new NotFoundException(`Task ID:${id} not found`);
+    async remove(id: string): Promise<void> {
+        const removedTask = await this.taskModel.findByIdAndDelete(id).exec()
+        if (!removedTask) {
+            throw new NotFoundException(`Task with ID:${id} not found`)
+        }
     }
 
-    return task;
-  }
-
-  async create(createTaskDTO: CreateTaskDTO): Promise<Tasks> {
-    const task = this.taskRepository.create(createTaskDTO);
-    return await this.taskRepository.save(task);
-  }
-
-  async update(id: string, updateTaskDTO: UpdateTasksDTO) {
-    const task = await this.taskRepository.preload({
-      ...updateTaskDTO,
-      id,
-    });
-
-    if (!task) {
-      throw new NotFoundException(`Task ID:${id} not found`);
+    async count() {
+        return this.taskModel.countDocuments().exec()
     }
-
-    return this.taskRepository.save(task);
-  }
-
-  async remove(id: string) {
-    const task = await this.taskRepository.findOne({
-      where: { id },
-    });
-
-    if (!task) {
-      throw new NotFoundException(`Task ID:${id} not found!`);
-    }
-
-    return this.taskRepository.remove(task);
-  }
 }
