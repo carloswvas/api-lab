@@ -69,6 +69,8 @@ Essa API **não é só um CRUD** — é um **campo de batalha** para você brilh
 | `status` | `?status=pending` | Filtra por status |
 | `dueDateStart` | `?dueDateStart=2025-11-01` | Data mínima |
 | `dueDateEnd` | `?dueDateEnd=2025-11-30` | Data máxima |
+| `createdStart` | `?createdStart=2025-01-01` | Data mínima |
+| `createdEnd` | `?createdEnd=2025-12-31` | Data máxima |
 | `orderBy` | `?orderBy=dueDate` | Campo de ordenação |
 | `order` | `?order=ASC` | Ordem (ASC/DESC) |
 | `page` / `limit` | `?page=2&limit=5` | Paginação |
