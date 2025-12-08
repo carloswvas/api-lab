@@ -145,8 +145,7 @@ Essa API **não é só um CRUD** — é um **campo de batalha** para você brilh
 ```bash
 git clone https://github.com/carloswvas/api-lab.git
 cd 01-api-tasks
-pnpm install
-pnpm run start:dev
+docker compose up -d
 ```
 ---
 

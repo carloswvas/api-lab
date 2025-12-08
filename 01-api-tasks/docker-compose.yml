@@ -1,0 +1,35 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://root:root@mongodb:27017/tasks?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - task-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: tasks_db
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo-data:/data/db
+    networks:
+      - task-network
+
+networks:
+  task-network:
+
+volumes:
+  mongo_data:
