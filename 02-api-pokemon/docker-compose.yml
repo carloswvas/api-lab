@@ -1,0 +1,57 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pokemon_api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://root:root@mongodb:27017/pokemon_db?authSource=admin
+    depends_on:
+      - mongo-restore
+    volumes:
+      - ./public/images:/app/public/images
+    networks:
+      - pokemon-network
+
+  mongodb:
+    image: mongo:7
+    container_name: pokemon_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./.docker/mongo/dump:/dump
+      - mongo-data:/data/db
+    networks:
+      - pokemon-network
+    command: ["mongod", "--quiet"]
+
+  mongo-restore:
+    image: mongo:7
+    container_name: pokemon_db_restore
+    volumes:
+      - ./.docker/mongo/dump:/dump
+    networks:
+      - pokemon-network
+    depends_on:
+      - mongodb
+    command: >
+      bash -c "
+      sleep 15 && 
+      echo '🚀 Tentativa de restauração corrigida...' && 
+      mongorestore --uri='mongodb://root:root@mongodb:27017/?authSource=admin' --drop /dump &&
+      echo '✅ Restauração finalizada!'
+      "
+    restart: 'no'
+
+networks:
+  pokemon-network:
+
+volumes:
+  mongo-data:
