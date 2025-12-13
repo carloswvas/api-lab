@@ -106,7 +106,7 @@ Cada API virá acompanhada de sugestões como:
 | Nº | Tema da API | Data de Publicação | Status
 |----|--------------|--------------------| -------- |
 | 01 | Lista de Tarefas | 08/12/2025 | 🟢 Disponível |
-| 02 | Pokemon | 00/00/2025 | 🔴 Em desenvolvimento |
+| 02 | Api Pokemon | 13/12/2025 | 🟢 Disponível |
 | 03 | Produtos e Categorias | 00/00/2025 | ⚪ Em breve |
 | 04 | Usuários e Autenticação | 00/00/2025 | ⚪ Em breve |
 | ... | ... | ... | ... |
