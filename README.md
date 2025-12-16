@@ -5,13 +5,23 @@
 
 ---
 
-## **Objetivo**
+## **Sobre o Projeto**
 
-Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** praticarem integração com back-end — como em projetos do mercado.
+O **API Lab** é um projeto **open source educacional** criado para desenvolvedores que querem praticar **integração front-end com APIs reais**, seguindo **padrões usados no mercado**.
 
-> **Cada API = 1 cenário real + desafios práticos**
+Aqui você não encontra CRUDs genéricos.
+Cada API simula um **cenário real**, com regras, validações e estrutura pensadas para **ensino e prática profissional**.
+
+> **Ideal para quem quer sair do “projeto de curso” e treinar como se estivesse em um time real.**
 
 ---
+
+## **Para quem é este projeto?**
+
+- Desenvolvedores Front-End (React, Vue, Angular, Mobile)
+- Estudantes de programação
+- Quem quer praticar consumo de APIs reais
+- Quem deseja montar projetos de portfólio mais profissionais
 
 ## **Como Funciona**
 
@@ -25,15 +35,11 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
    ```
 
 2. **Cada pasta contém:**
-   - Projeto NestJS completo com SQLite
+   - Projeto NestJS completo
    - `README.md` com endpoints, exemplos e **desafios front-end**
-   - Dockerfile para rodar a API em container
+   - Dockerfile e Docker Compose
    - Documentação Swagger
-
-3. **Consuma com:**
-   - React, Vue, Angular
-   - Postman, Insomnia
-   - Mobile (React Native, Flutter)
+   - Estrutura preparada para testes
 
 ---
 
@@ -41,7 +47,8 @@ Disponibilizar **APIs completas e reais** para desenvolvedores **front-end** pra
 
 - **NestJS** — Framework Node.js modular e escalável.  
 - **TypeScript** — Tipagem forte e manutenção simplificada.  
-- **Docker / Docker Compose** — Containerização e orquestração para fácil execução.  
+- **Docker / Docker Compose** — Containerização e orquestração para fácil execução.
+- **MongoDB / PostgreSQL** — Bancos usados em projetos reais.
 - **Class Validator / Class Transformer** — Validação e transformação de dados.  
 - **Swagger** — Documentação automática dos endpoints.
 
@@ -87,17 +94,17 @@ A documentação Swagger pode ser acessada em:
  ┗ 📜 docker-compose.yml
  ┗ 📜 Dockerfile
 ```
-
+> Estrutura pensada para ensinar organização, separação de responsabilidades e boas práticas.
 ---
 
 ## Sugestões de Prática para Front-End
 
 Cada API virá acompanhada de sugestões como:
-- Criar uma tela de **listagem e detalhes** dos dados.
-- Implementar **formulários** de cadastro e edição.
-- Tratar **erros de API** e **validações**.
-- Exibir **mensagens dinâmicas** (sucesso/erro).
-- Aplicar **autenticação (JWT)** nas APIs que exigirem login.
+- Listagem e detalhamento de dados.
+- Formulários de criação e edição.
+- Tratamento de erros e validações.
+- Feedback visual (sucesso / erro).
+- Autenticação (JWT) quando aplicável
 
 ---
 
@@ -122,17 +129,22 @@ Quer sugerir uma nova prática ou colaborar?
    git checkout -b feature/nova-api
    ```
 3. Faça suas alterações e envie um **pull request**.
-
+>Sugestões de novas APIs e melhorias também são muito bem-vindas.
 ---
 
 ## Sobre o Autor
 
 **Carlos Vasconcelos**  
-Instrutor de TI com mais de 10 anos de experiência na área e 7 anos na educação.  
-Atua com desenvolvimento de software, mentoria de alunos e criação de produtos educacionais voltados à formação de desenvolvedores.  
+Instrutor de TI com mais de 10 anos de experiência na área e 7 anos na educação.
+Atua com:
+- Desenvolvimento de software
+- Ensino de Programação
+- Mentoria de alunos e criação de produtos educacionais.  
 
 📬 [LinkedIn](https://www.linkedin.com/in/carlos-w-vasconcelos/)  
 🐙 [GitHub](https://github.com/carloswvas)
 
 ---
+⭐ Se este projeto te ajudou, considere deixar uma star no repositório.
+Isso ajuda o projeto a crescer e alcançar mais desenvolvedores.
 > **Clone. Consuma. Construa. Brilhe.**
