@@ -309,3 +309,4 @@ A API cria automaticamente dados de exemplo na primeira execução:
 
 **#ShopAPI #Ecommerce #React #NextJS #TypeScript #PortfolioKiller**
 
+
