@@ -1,0 +1,50 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: products-api
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: products_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - products-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: products_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: products_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - products-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  products-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+
+
